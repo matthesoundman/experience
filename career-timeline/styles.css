@@ -80,10 +80,10 @@ a {
 /* Hero */
 
 .hero {
-  min-height: 92vh;
+  min-height: 84vh;
   width: min(1120px, 100%);
   margin: 0 auto;
-  padding: 110px 24px 80px;
+  padding: 104px 24px 34px;
   display: grid;
   align-content: center;
 }
@@ -140,18 +140,58 @@ a {
   color: #06111f;
 }
 
+.hero .button.primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: min(100%, 336px);
+  padding: 22px 44px;
+  border-color: rgba(86, 182, 194, 0.92);
+  background:
+    linear-gradient(125deg, rgba(255, 255, 255, 0.38), transparent 28%),
+    linear-gradient(135deg, var(--cyan), var(--green));
+  box-shadow:
+    0 22px 70px rgba(86, 182, 194, 0.24),
+    0 10px 34px rgba(152, 195, 121, 0.16),
+    0 0 0 1px rgba(255, 255, 255, 0.24) inset;
+  font-size: 18px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.hero .button.primary::after {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border: 1px solid rgba(6, 17, 31, 0.22);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.hero .button.primary:hover {
+  background:
+    linear-gradient(125deg, rgba(255, 255, 255, 0.46), transparent 28%),
+    linear-gradient(135deg, #6ad4df, #b3d98f);
+  box-shadow:
+    0 28px 82px rgba(86, 182, 194, 0.3),
+    0 12px 38px rgba(152, 195, 121, 0.22),
+    0 0 0 1px rgba(255, 255, 255, 0.3) inset;
+}
+
 /* Timeline */
 
 .timeline {
   position: relative;
   width: min(1180px, 100%);
   margin: 0 auto;
-  padding: 80px 24px 40px;
+  padding: 44px 24px 40px;
 }
 
 .timeline-line {
   position: absolute;
-  top: 90px;
+  top: 54px;
   bottom: 40px;
   left: 150px;
   width: 2px;
