@@ -346,6 +346,29 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted);
 }
 .phase-label svg { width: 16px; height: 16px; }
+.role-symbol { flex: 0 0 auto; }
+.phase-label-navy .role-symbol { color: var(--accent); }
+.phase-label-apple .role-symbol { color: var(--purple); }
+.phase-label-microsoft .role-symbol { color: var(--green); }
+
+.apple-symbol {
+  display: inline-grid;
+  width: 20px;
+  height: 20px;
+  place-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.ms-logo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  width: 16px;
+  height: 16px;
+}
+.ms-logo span { background: currentColor; }
 
 .phase-heading {
   font-family: 'Inter Tight', sans-serif;
