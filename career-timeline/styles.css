@@ -23,6 +23,7 @@
   --shadow-strong: rgba(0, 0, 0, 0.6);
   --radius-xl: 1.5rem;
   --container: 1200px;
+  --marquee-height: 3.25rem;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -39,6 +40,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  padding-bottom: calc(var(--marquee-height) + env(safe-area-inset-bottom));
 }
 
 img { display: block; max-width: 100%; }
@@ -250,12 +252,23 @@ a { color: inherit; text-decoration: none; }
 
 /* ══════ MARQUEE ══════ */
 .marquee {
+  position: fixed;
+  z-index: 40;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: calc(var(--marquee-height) + env(safe-area-inset-bottom));
   background: var(--card);
   border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-  padding: 1.125rem 0; overflow: hidden;
+  padding-bottom: env(safe-area-inset-bottom);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
 }
 .marquee-track {
   display: flex; gap: 3rem;
+  flex: none;
   animation: scroll-m 35s linear infinite;
   width: max-content;
 }
