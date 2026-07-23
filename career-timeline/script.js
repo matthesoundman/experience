@@ -5,6 +5,7 @@
   var body = document.body;
   var heroTitle = document.querySelector('.hero-title');
   var finalTitleLine = heroTitle && heroTitle.lastElementChild;
+  var stickyHeader = document.getElementById('stickyHeader');
   var introTimer;
 
   function completeHeroIntro() {
@@ -12,6 +13,7 @@
 
     body.classList.remove('hero-intro-pending');
     body.classList.add('hero-intro-complete');
+    if (stickyHeader) stickyHeader.classList.add('visible');
     window.clearTimeout(introTimer);
   }
 
@@ -26,7 +28,7 @@
     });
 
     // Prevent a hidden page if the transition is interrupted or unsupported.
-    introTimer = window.setTimeout(completeHeroIntro, 4000);
+    introTimer = window.setTimeout(completeHeroIntro, 1800);
   }
 
   // Scroll reveal animations
@@ -42,19 +44,9 @@
     document.querySelectorAll('.reveal').forEach(function(el) { revealObs.observe(el); });
   }
 
-  // Sticky header — appears when hero CTA scrolls out of view
-  var heroCta = document.getElementById('heroCta');
-  var stickyHeader = document.getElementById('stickyHeader');
-  if (heroCta && stickyHeader) {
-    var headerObs = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          stickyHeader.classList.remove('visible');
-        } else {
-          stickyHeader.classList.add('visible');
-        }
-      });
-    }, { threshold: 0 });
-    headerObs.observe(heroCta);
-  }
+  document.querySelectorAll('.sticky-header-cta, .hero-cta, .btn-primary').forEach(function(button) {
+    button.addEventListener('click', function() {
+      button.classList.add('resume-clicked');
+    });
+  });
 })();
